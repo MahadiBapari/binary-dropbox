@@ -1,0 +1,372 @@
+
+
+CREATE DATABASE DELIVERY_on_TIME_01;
+GO
+USE [DELIVERY_on_TIME_01];
+GO
+CREATE TABLE EMPLOYEE (
+Employee_ID INT PRIMARY KEY,
+Name VARCHAR(50),
+Emp_Address VARCHAR(50),
+Phone BIGINT,
+Position VARCHAR(50),
+Salary FLOAT
+);
+GO
+insert into [dbo].[EMPLOYEE]
+VALUES
+(18000,'Badhon','Rampura',5046218927,'Delivery_man',12000),
+(18001,'Badsha','Mirpur',8102929388,'Delivery_man',12000),
+(18002,'Rana','Rampura',8566368749,'Delivery_man',12000),
+(18003,'Babu','Gulshan',9073854412,'Delivery_man',12000),
+(18004,'Rabbi','Uttara',5135701893,'Delivery_man',12000),
+(18005,'Abir','Mirpur',4195032484,'Delivery_man',12000),
+(18006,'Raju','Bashtola',7735736914,'Delivery_man',12000),
+(18007,'Ruhul','Nurerchala',4087523500,'Delivery_man',12000),
+(18008,'Rafat','Gulshan',6054142147,'Delivery_man',12000),
+(18009,'Roni','Rampura',4106558723,'Delivery_man',12000),
+(18010,'Shawon','Mirpur',2158741229,'Delivery_man',12000),
+(18011,'Sojib','Uttata',6313353414,'Delivery_man',12000),
+(18012,'Akash','Kafrul',3104985651,'Delivery_man',12000),
+(18013,'Emon','Bashtola',4407808425,'Delivery_man',12000),
+(18014,'Ratul','Rampura',9565376195,'Delivery_man',12000),
+(18015,'Rakib','Nurerchala',6022774385,'Delivery_man',12000),
+(18016,'Shuvo','Mohammadpur',9313139635,'Delivery_man',12000),
+(18017,'Shohag','Tongi',4106691642,'Delivery_man',12000),
+(18018,'Sakib','Kafrul',2125824976,'Delivery_man',12000),
+(18019,'Rafik','Mirpur',9363363951,'Delivery_man',12000),
+(18020,'Rajib','Uttara',6148019788,'Delivery_man',12000),
+(18021,'Rokon','Mohammadpur',5059773911,'Delivery_man',12000),
+(19000,'Boshir','Dhanmondi',2017096245,'Admin',22000),
+(19001,'Rifa','shariatpur',7329247882,'Admin',17000),
+(19002,'Salma','Rampura',2128601579,'Admin',19000),
+(19003,'Lebu','Bashundhora',4074134842,'Admin',25000),
+(19004,'Robi','Uttara',2067116498,'IT',25000),
+(19005,'Akter','nurerchala',3087262182,'IT',29000),
+(19006,'Asaad','Bashtola',5744991454,'DATA_Analyst',31000),
+(19007,'Ritu','Norda',2087091235,'Receptionist',14000);
+GO
+SELECT * FROM EMPLOYEE;
+GO
+USE [DELIVERY_on_TIME_01];
+GO
+CREATE TABLE SAFETY(
+Employee_ID INT,
+Covid_Report VARCHAR(50),
+Mask VARCHAR(50),
+Gloves VARCHAR(50),
+Hand_Sanitizer VARCHAR(50),
+PRIMARY KEY(Employee_ID,Covid_Report),
+FOREIGN KEY (Employee_ID) REFERENCES EMPLOYEE(Employee_ID)
+);
+GO
+insert into [dbo].[SAFETY]
+VALUES
+(18000,'Negative','must','must','must'),
+(18001,'Negative','must','must','must'),
+(18002,'Negative','must','must','must'),
+(18003,'Negative','must','must','must'),
+(18004,'Negative','must','must','must'),
+(18005,'Negative','must','must','must'),
+(18006,'Negative','must','must','must'),
+(18007,'Negative','must','must','must'),
+(18008,'Negative','must','must','must'),
+(18009,'Negative','must','must','must'),
+(18010,'Negative','must','must','must'),
+(18011,'Negative','must','must','must'),
+(18012,'Negative','must','must','must'),
+(18013,'Negative','must','must','must'),
+(18014,'Negative','must','must','must'),
+(18015,'Negative','must','must','must'),
+(18016,'Negative','must','must','must'),
+(18017,'Negative','must','must','must'),
+(18018,'Negative','must','must','must'),
+(18019,'Negative','must','must','must'),
+(18020,'Negative','must','must','must'),
+(18021,'Negative','must','must','must'),
+(19000,'Negative','must','optional','must'),
+(19001,'Negative','must','optional','must'),
+(19002,'Negative','must','optional','must'),
+(19003,'Negative','must','optional','must'),
+(19004,'Negative','must','optional','must'),
+(19005,'Negative','must','optional','must'),
+(19006,'Negative','optional','optional','must'),
+(19007,'Negative','must','must','must');
+GO
+SELECT * FROM SAFETY;
+GO
+USE [DELIVERY_on_TIME_01];
+GO
+CREATE TABLE CUSTOMER(
+Customer_ID INT PRIMARY KEY,
+Name VARCHAR(50),
+Cust_Address VARCHAR(50),
+Phone BIGINT
+);
+GO
+insert into [dbo].[CUSTOMER]
+VALUES
+(16000,'Jibon','Rampura',6215048927),
+(16001,'Jala','Mirpur',2928109388),
+(16002,'Roton','Rampura',6368568749),
+(16003,'Rijvi','Gulshan',3859074412),
+(16004,'Rezu','Uttara',5705131893),
+(16005,'Riham','Mirpur',5034192484),
+(16006,'Fahad','Bashtola',5737736914),
+(16007,'Saadat','Nurerchala',7524083500),
+(16008,'Farabee','Gulshan',4146052147),
+(16009,'Shafi','Rampura',6554108723),
+(16010,'Shafin','Mirpur',8742151229),
+(16011,'Tonni','Uttata',3356313414),
+(16012,'Joya','Kafrul',4983105651),
+(16013,'Jhumur','Bashtola',7804408425),
+(16014,'Renu','Rampura',5379566195),
+(16015,'Polash','Nurerchala',2776024385),
+(16016,'Parves','Mohammadpur',3139319635),
+(16017,'Parvin','Tongi',6694101642),
+(16018,'Joti','Kafrul',5822124976),
+(16019,'Salman','Mirpur',3369363951),
+(16020,'Surjo','Uttara',8016149788),
+(16021,'Kakoli','Mohammadpur',9775053911),
+(16022,'Araf','Dhanmondi',7092016245),
+(16023,'Arifin','shariatpur',9247327882),
+(16024,'Anu','Rampura',8602121579),
+(16025,'Kancchon','Bashundhora',4134074842),
+(16026,'Kazi','Uttara',7112066498),
+(16027,'Abdul','nurerchala',7263082182),
+(16028,'Sifat','Bashtola',4995741454),
+(16029,'Roni','Norda',7092081235);
+GO
+SELECT * FROM CUSTOMER;
+GO
+USE [DELIVERY_on_TIME_01];
+GO
+CREATE TABLE VEHICLE(
+Vehicle_ID INT PRIMARY KEY,
+Vehicle_TYPE VARCHAR(50),
+Maintain_Cost FLOAT
+);
+GO
+insert into [dbo].[VEHICLE]
+VALUES
+(14000,'Bike',300),
+(14001,'Bike',300),
+(14002,'Bike',300),
+(14003,'Bike',300),
+(14004,'Bike',300),
+(14005,'Bike',300),
+(14006,'Bike',300),
+(14007,'Bike',300),
+(14008,'Bike',300),
+(14009,'Bike',300),
+(14010,'Cycle',50),
+(14011,'Cycle',50),
+(14012,'Cycle',50),
+(14013,'Cycle',50),
+(14014,'Cycle',50),
+(14015,'Cycle',50),
+(14016,'Cycle',50),
+(14017,'Cycle',50),
+(14018,'Cycle',50),
+(14019,'Cycle',50),
+(14020,'Pickup_truck',600),
+(14021,'Pickup_truck',600),
+(14022,'Pickup_truck',600),
+(14023,'Pickup_truck',600),
+(14024,'Pickup_truck',600),
+(14025,'Bike',300),
+(14026,'Bike',300),
+(14027,'Bike',300),
+(14028,'Bike',300),
+(14029,'Bike',300);
+GO
+SELECT * FROM VEHICLE;
+GO
+USE [DELIVERY_on_TIME_01];
+GO
+CREATE TABLE USEER(
+Seller_ID INT PRIMARY KEY,
+Name VARCHAR(50),
+User_Address VARCHAR(50),
+Phone BIGINT,
+);
+GO
+insert into [dbo].[USEER]
+VALUES
+(15000,'Lutfor','Rampura',018927621504),
+(15001,'Latif','Mirpur',019388292810),
+(15002,'Lablu','Rampura',018749636856),
+(15003,'Rajon','Gulshan',014412385907),
+(15004,'Ronit','Uttara',011893570513),
+(15005,'Babon','Mirpur',012484503419),
+(15006,'Konok','Bashtola',016914573773),
+(15007,'Bacchu','Nurerchala',013500752408),
+(15008,'Bablu','Gulshan',012147414605),
+(15009,'Boni','Rampura',018723655410),
+(15010,'Shilpi','Mirpur',011229874215),
+(15011,'Aleya','Uttata',013414335631),
+(15012,'Bokkar','Kafrul',015651498310),
+(15013,'Selim','Bashtola',018425780440),
+(15014,'Gogon','Rampura',016195537956),
+(15015,'Nuruddin','Nurerchala',014385277602),
+(15016,'Alom','Mohammadpur',019635313931),
+(15017,'Dulal','Tongi',01642669410),
+(15018,'Helal','Kafrul',014976582212),
+(15019,'Kalam','Mirpur',013951336936),
+(15020,'Khonju','Uttara',019788801614),
+(15021,'Shimul','Mohammadpur',013911977505),
+(15022,'Atif','Dhanmondi',016245709201),
+(15023,'Sazzad','shariatpur',017882924732),
+(15024,'Sony','Rampura',011579860212),
+(15025,'Shumi','Bashundhora',014842413407),
+(15026,'Priya','Uttara',016498711206),
+(15027,'Mustak','nurerchala',012182726308),
+(15028,'Piyom','Bashtola',01454499574),
+(15029,'Salekin','Norda',01235709208);
+GO
+SELECT * FROM USEER;
+GO
+USE [DELIVERY_on_TIME_01];
+GO
+CREATE TABLE SERVICE(
+Service_ID INT,
+Serv_Name VARCHAR(50),
+Service_Charge INT,
+Rating FLOAT,
+PRIMARY KEY(Service_ID,Service_Charge)
+);
+GO
+insert into [dbo].[SERVICE]
+VALUES
+(12000,'Food_Delivery',60, 3.8),
+(12001,'Medicine_Delivery',60, 4.5),
+(12002,'Grocery',60,3.3),
+(12003,'Laundry',30,4),
+(12004,'Courier',120,4.2),
+(12005,'clothing_shop',3500,2.2);
+GO
+SELECT * FROM SERVICE;
+GO
+USE [DELIVERY_on_TIME_01];
+GO
+CREATE TABLE PRODUCT(
+Product_ID INT PRIMARY KEY,
+Name VARCHAR(50),
+Amount VARCHAR(50),
+Price FLOAT
+);
+GO
+insert into [dbo].[PRODUCT]
+VALUES
+(13000,'Burger_Large','1_Piece',480),
+(13001,'Burger_Medium','1_Piece',250),
+(13002,'Pizza_Large','1_Piece',1180),
+(13003,'Pizza_Medium','1_Piece',710),
+(13004,'Pasta_Large','1_Bowl',500),
+(13005,'Pasta_Medium','1_Bowl',300),
+(13006,'Napa_Extend','1_Leaflet',15),
+(13007,'Ace_Plus','1_Leaflet',20),
+(13008,'Imodium','1_Leaflet',35),
+(13009,'Antacid','1_Leaflet',12),
+(13010,'Rice','1_KG',43),
+(13011,'Wheat','1_KG',32),
+(13012,'Oil','1_Litre',110),
+(13013,'Meat','1_KG',600),
+(13014,'Chicken','1_KG',210),
+(13015,'Potato','1_KG',20),
+(13016,'Spinach','1_Pack',16),
+(13017,'Apple','1_KG',330),
+(13018,'Orange','1_KG',270),
+(13019,'Shirt','1_Piece',10),
+(13020,'Pant','1_Piece',10),
+(13021,'Coat','1_Piece',50),
+(13022,'Blanket','1_Piece',150),
+(13023,'Bed_Sheet','1_Piece',70),
+(13024,'Product','1_Piece',120),
+(13025,'product1','1_product',55000),
+(13026,'product2','1_product',85000),
+(13027,'product3','1_product',125000);
+GO
+SELECT * FROM PRODUCT;
+GO
+USE [DELIVERY_on_TIME_01];
+GO
+CREATE TABLE SHOPS(
+Shop_ID INT,
+Shop_Name VARCHAR(50),
+Opening_Time VARCHAR(50),
+Closing_Time VARCHAR(50),
+PRIMARY KEY(Shop_ID),
+);
+GO
+insert into [dbo].[SHOPS]
+VALUES
+(20000,'Takeout','9am','11.30pm'),
+(20001,'Pizza_hut','9.30am','9.30pm'),
+(20002,'Alfresco','11.20am','10.30pm'),
+(20003,'Al_Madina','8.00am','2.30pm'),
+(20004,'Gulshan_Pharma','7.20am','12.30pm'),
+(20005,'Swapno','11.00am','10.30pm'),
+(20006,'Unimart','11.30','10.30pm'),
+(20007,'Exclusive','7.00am','11.30pm'),
+(20008,'S_Courier','7.00am','11.30pm'),
+(20009,'clothing_shop','9.00am','2.30pm');
+GO
+SELECT * FROM SHOPS;
+GO
+CREATE TABLE DELIVERY(
+Delivery_ID INT,
+Shop_ID INT,
+Product_ID INT,
+Service_ID INT,
+Employee_ID INT,
+Delivery_Charge INT,
+Customer_ID INT,
+Seller_ID INT,
+Receiver_ID INT,
+Vehicle_ID INT,
+Delivery_Time VARCHAR(50),
+Delivery_Date DATE,
+PRIMARY KEY(Delivery_ID,Delivery_Time,Delivery_Date),
+FOREIGN KEY (Employee_ID) REFERENCES EMPLOYEE(Employee_ID),
+FOREIGN KEY (Shop_ID) REFERENCES SHOPS(Shop_ID),
+FOREIGN KEY (Product_ID) REFERENCES PRODUCT(Product_ID),
+FOREIGN KEY (Service_ID,Delivery_Charge) REFERENCES SERVICE(Service_ID,Service_Charge),
+FOREIGN KEY (Customer_ID) REFERENCES CUSTOMER(Customer_ID),
+FOREIGN KEY (Receiver_ID) REFERENCES CUSTOMER(Customer_ID),
+FOREIGN KEY (Vehicle_ID) REFERENCES VEHICLE(Vehicle_ID),
+FOREIGN KEY (Seller_ID) REFERENCES USEER(Seller_ID)
+);
+Go
+insert into [dbo].[DELIVERY]
+VALUES
+(10000,20000,13000,12000,18000,60,16000,15000,16000,14000,'12.01pm','01-08-2020'),
+(10001,20000,13001,12000,18001,60,16001,15000,16001,14001,'1.00pm','01-08-2020'),
+(10002,20001,13002,12000,18002,60,16002,15002,16002,14002,'12.20pm','01-08-2020'),
+(10003,20001,13003,12000,18003,60,16003,15002,16017,14003,'12.25pm','01-08-2020'),
+(10004,20002,13004,12000,18004,60,16004,15004,16004,14004,'1.20pm','01-08-2020'),
+(10005,20002,13005,12000,18005,60,16005,15004,16018,14005,'12.23pm','01-08-2020'),
+(10006,20003,13006,12001,18006,60,16006,15005,16006,14010,'3.20pm','01-08-2020'),
+(10007,20003,13007,12001,18007,60,16007,15005,16007,14011,'4.10pm','01-08-2020'),
+(10008,20003,13008,12001,18008,60,16008,15005,16000,14012,'3.11pm','01-08-2020'),
+(10009,20003,13009,12001,18009,60,16009,15005,16009,14013,'3.15pm','01-08-2020'),
+(10011,20005,13010,12002,18010,60,16010,15006,16010,14006,'2.00pm','01-08-2020'),
+(10012,20005,13011,12002,18011,60,16011,15006,16011,14007,'2.13pm','01-08-2020'),
+(10013,20005,13012,12002,18012,60,16012,15006,16012,14008,'2.38pm','01-08-2020'),
+(10014,20005,13013,12002,18013,60,16013,15006,16013,14009,'2.48pm','01-08-2020'),
+(10015,20005,13014,12002,18014,60,16014,15006,16014,14025,'2.19pm','01-08-2020'),
+(10016,20005,13015,12002,18015,60,16015,15006,16015,14026,'3.10pm','01-08-2020'),
+(10017,20005,13016,12002,18016,60,16016,15006,16016,14027,'3.15pm','01-08-2020'),
+(10018,20005,13017,12002,18017,60,16017,15006,16017,14028,'3.17pm','01-08-2020'),
+(10019,20005,13018,12002,18018,60,16018,15006,16018,14029,'4.50pm','01-08-2020'),
+(10020,20007,13019,12003,18019,30,16019,15007,16019,14015,'1.45pm','01-08-2020'),
+(10021,20007,13020,12003,18020,30,16020,15007,16020,14016,'5.23pm','01-08-2020'),
+(10022,20007,13021,12003,18021,30,16021,15007,16021,14017,'1.30pm','02-08-2020'),
+(10023,20007,13022,12003,18000,30,16022,15007,16022,14018,'8.10pm','02-08-2020'),
+(10024,20007,13023,12003,18001,30,16023,15007,16023,14019,'6.03pm','02-08-2020'),
+(10025,20008,13024,12004,18002,120,16024,15008,16015,14003,'12.40pm','02-08-2020'),
+(10026,20009,13025,12005,18003,3500,16025,15009,16025,14021,'1.23pm','02-08-2020'),
+(10027,20009,13026,12005,18004,3500,16026,15009,16026,14022,'8.00pm','02-08-2020'),
+(10028,20009,13027,12005,18005,3500,16027,15009,16027,14023,'9.21pm','02-08-2020');
+GO
+SELECT * FROM DELIVERY
